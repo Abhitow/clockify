@@ -1,0 +1,127 @@
+.loginpage-container{
+  margin: 0 auto;
+  padding: 25px;
+}
+.loginpage-card{
+  margin: 0 auto;
+  width: 500px;
+}
+.register-form-submit-button{
+  margin-left: 100px;
+}
+.register-form-cancel-button{
+  margin-left: 20px;
+}
+
+/*<--------Home Layout*/
+
+.home-layout{
+  height: 100vh;
+}
+.trigger{
+  justify-content: center !important;
+  align-items: center !important;
+  float: right;
+  font-size: 20px;
+  margin-top:20px;
+}
+
+/*<----Layout Sider------>*/
+.sider{
+  border-left: 4px solid rgb(100, 214, 248);
+}
+.sider-label{
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 20px !important;
+  
+}
+
+.sider-icon{
+  font-size: 20px !important;
+}
+
+/*<-----Layout Header------>*/
+
+.layout-header{
+  background: white !important;
+}
+.header-task-management{
+  font-size: 20px;
+  font-weight: 500;
+}
+.header-notification-icon{
+  padding-left: 50px;
+  padding-right: 50px;
+  font-size: 20px;
+ 
+  margin-top: 20px;
+  
+}
+
+.header-help-icon{
+  padding-left: 50px;
+  font-size: 20px !important;
+  
+  margin-top: 20px;
+}
+.help-anchor{
+      background-color: none;
+}
+.header-profile{
+  font-size: 20px;
+  margin-left: 20px;
+}
+
+/*<------Dashboard -Card*/
+
+.dashboard-card{
+  width: 250px;
+  height: 250px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+  
+}
+.flip-card {
+  background-color: transparent;
+  width: 250px;
+  height: 250px;
+  perspective: 1000px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 250px;
+  height: 250px;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  
+}
+.flip-card-back {
+  transform: rotateY(180deg);
+  position: relative;
+  width: 250px !important;
+  height: 250px !important;
+  text-align: center;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  
+}
+
+
+
