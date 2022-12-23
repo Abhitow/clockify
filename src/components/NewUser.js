@@ -1,10 +1,9 @@
 import React, {useState} from 'react'
 import { Button, Form, Modal ,Input ,message , Checkbox} from 'antd'
-import Register from '../pages/RegisterForm';
 import axios from 'axios'
 
 const Newuser = () =>{
-
+    
     const [messageApi ,contextHolder] = message.useMessage();
     const formItemLayout = {
         labelCol: {
@@ -30,19 +29,11 @@ const Newuser = () =>{
     const[workexperience , setworkexperience] =useState("");
     const [usercompany , setUsercompany] =useState("");
     const [isModalopen , setIsModalOpen] =useState(false);
+    
     const showModal = () =>{
         setIsModalOpen(true);
     };
-    const handleClick = (responseData , values) =>{
-        console.log("handling")
-        if(responseData.status=== true )
-        {
-            setIsModalOpen(true)
-        }
-        else{
-            setIsModalOpen(false)
-        }
-    }
+    
     const handleCancel = () => {
         setIsModalOpen(false);
     }
@@ -54,18 +45,32 @@ const Newuser = () =>{
         "mobile_no": phone,
         "user_company": usercompany
     };
-      const onFinish =(values) =>{
+      const onFinish =() =>{
+        let response = "";
         console.log("handleFinish")
-       
         messageApi.open({
             type:'success',
             content:'successfully registered'
         })
         console.log(payload);
         axios.post("http://demo.emeetify.com:8080/daytodaytask/admin/register" ,payload)
-        .then((response)=>{console.log(response)})
+        .then( (response)=>
+        {console.log(response) 
+            if(response.data.status === true ){
+                    console.log("----->working");
+                    setIsModalOpen(true);
+            }else{
+                console.log("--->not working");
+            }
+    })
         .catch(e =>{console.log("e" ,e)})
       }
+
+      
+    const handleClick = () =>{
+    console.log("handling"); 
+       
+    }
       
     return(
         <div>
