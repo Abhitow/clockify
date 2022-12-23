@@ -14,11 +14,10 @@ function App() {
     <div className="App">
       <BrowserRouter >
         <Routes>
-          <Route path='/' element={<Register />} />
-          <Route path='/login' element={<Login />}></Route>
+          <Route path='/' element={<Login />}></Route>
           <Route path='/home' element={<Homepage />}/>
-          <Route path='/dashboard' element={<Dashboard />} />
-          <Route path='/timesheet' element={<Timesheet />} />
+          {/* <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/timesheet' element={<Timesheet />} /> */}
         </Routes>
       </BrowserRouter>
       {/* <Formikk /> */}

@@ -44,15 +44,15 @@ const handleClick =() => {
         type:'success',
         content:'Login Successfull'
     })
-    
-     }
+  }
      else{
       console.log("unsuccess")
       message.open({
         type:'error' ,
-        content:'email or password is wrong'
+        content:'please enter valid input'
       })
     }
+  
      
 }
 // useEffect( () => {
@@ -90,7 +90,7 @@ return (
               },
             ]}
             >
-              <Input className='form-input' value={email} onChange={(e)=>{setEmail(e.target.value)}}  />
+              <Input className='form-input' value={email} onChange={(e)=>{setEmail(e.target.value)}}  autoComplete='off'/>
             </Form.Item>
             <Form.Item 
             className='form-form-item'

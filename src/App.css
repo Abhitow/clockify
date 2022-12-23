@@ -12,6 +12,11 @@
 .register-form-cancel-button{
   margin-left: 20px;
 }
+/*<------Register Form ------>*/
+
+.register-form-input{
+  width: 250px;
+}
 
 /*<--------Home Layout*/
 

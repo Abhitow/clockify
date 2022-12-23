@@ -12,7 +12,7 @@ function handleLogout(){
         type:'success',
         content:'Logout Successfull'
     })
-    navigate("/login");
+    navigate("/");
 
 }
     return (

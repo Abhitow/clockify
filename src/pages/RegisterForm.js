@@ -62,9 +62,6 @@ const Register = () =>{
       const handleClick = () =>{
         console.log("handling");
       }
-
-     
-     
     return(
         <div className='loginpage-container'>
             <Card className='loginpage-card'>
