@@ -1,8 +1,12 @@
 import React from 'react'
+import Dashboard from './Dashboard'
 
-const HomeContent =() =>{
-    <div>
-        <h1>Welcome to Content Page</h1>
-    </div>
+const HomeContent = () => {
+    return(
+        <div className='layout-content'>
+            {<Dashboard />}
+        </div>
+    )
 }
+
 export default HomeContent

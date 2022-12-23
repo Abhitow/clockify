@@ -1,6 +1,7 @@
 import { Dropdown, Space } from 'antd'
 import React from 'react'
 import { UserOutlined } from '@ant-design/icons'
+import Logout from './Logout'
 
 const items =[
     {
@@ -28,7 +29,7 @@ const items =[
     } ,
     {
         key:'5',
-        label:'LogOut'
+        label:<Logout />
     }
 ]
 const Profile = () => {

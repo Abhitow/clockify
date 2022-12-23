@@ -1,37 +1,21 @@
 import React, { useEffect } from 'react'
-import {Card , Form ,Input ,Button} from 'antd'
+import {Card , Form ,Input ,Button ,message} from 'antd'
 import { useState  } from 'react';
-import {useNavigate} from 'react-router-dom'
+import {Route, Routes, useNavigate} from 'react-router-dom'
+import HomeContent from '../components/Content';
 // import Axios from 'axios'
 
 function Login() {
   const navigate =useNavigate()
-//   let jsonObj = {
-//     "email": "abhilash@gmail.com" ,
-//     "password" : "aaaa"
-// }
-  //   const onFinish =(values) => {
-  //     console.log(values)        
-  //       if(values.email === responseData.email && values.password === responseData.password)
-  //   {
-  //       console.log("logged in");
-  //       navigate("/home/*");
-  //   }
-  //   else{
-  //       console.log("invalid usename and password");
-  //   }
-  // }
-// } 
-const onFinishFailed = (errorInfo) => {
+  const onFinishFailed = (errorInfo) => {
   console.log("unsuccess" , errorInfo);}
   const [email ,setEmail] =useState("")
   const [password ,setPassword] =useState("");
   const [responseData ,setResponseData] = useState("");
-  // const onSubmit = (e) =>{
-  // e.preventDefault();
-  // console.log("aaaa")}
+  const [messageApi ,contextHolder] = message.useMessage();
+
 const handleClick =() => {
-  console.log("handleClick")
+  
   fetch("http://demo.emeetify.com:8080/daytodaytask/admin/adminlogin", {
     method: 'POST',
     body: JSON.stringify({
@@ -52,20 +36,39 @@ const handleClick =() => {
       console.log("catch")
         console.log(err.message);
      });
+     if(responseData.status === true)
+     {
+       console.log("login success")
+       navigate("/home")
+       message.open({
+        type:'success',
+        content:'Login Successfull'
+    })
+    
+     }
+     else{
+      console.log("unsuccess")
+      message.open({
+        type:'error' ,
+        content:'email or password is wrong'
+      })
+    }
+     
 }
-useEffect( () => {
-  if(responseData !== null && responseData !== undefined){
-    console.log(responseData);
-    // navigate("/home/*");
-  }else{
-    navigate("/home/*");
-    // console.log(responseData)
-  }
-} , [responseData]);
-console.log(JSON.stringify({
-  email : email ,
-  password : password
-}))
+// useEffect( () => {
+//   if(responseData.status === false && responseData !== undefined ){
+//     console.log(responseData);
+//     console.log("login page should be redirected")
+//     // navigate("/home/*");
+//   }else{
+//     console.log("home page should be displayed")
+    
+//   }
+// } , [responseData]);
+// console.log(JSON.stringify({
+//   email : email ,
+//   password : password
+// }))
 
 
 
@@ -103,6 +106,7 @@ return (
               <Input.Password className='form-input' value={password} onChange={(e)=>{setPassword(e.target.value)}}   />
             </Form.Item>
             <Form.Item >
+              {contextHolder}
             <Button type='primary' htmlType='submit' onClick={handleClick}  className='form-button' ><b>LOGIN</b></Button>
             </Form.Item>
         </Form>

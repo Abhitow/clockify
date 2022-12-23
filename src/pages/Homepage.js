@@ -26,10 +26,6 @@ const Homepage =() =>{
                 <Layout>
                 <Header className='layout-header'><HomeHeader /></Header>
                     <Content><HomeContent />
-                        <Routes>
-                            <Route path='/dashboard' element={<Dashboard />}></Route>
-                        </Routes>
-                    
                     </Content>
                 </Layout>
             </Layout>
