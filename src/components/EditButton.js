@@ -31,6 +31,7 @@ const Newuser = () =>{
     const [isModalopen , setIsModalOpen] =useState(false);
     
     const showModal = () =>{
+        console.log("------>Button working")
         setIsModalOpen(true);
     };
     
@@ -52,7 +53,7 @@ const Newuser = () =>{
             content:'successfully registered'
         })
         console.log(payload);
-        axios.post("http://demo.emeetify.com:8080/daytodaytask/admin/register" ,payload)
+        axios.put("http://demo.emeetify.com:8080 /daytodaytask/admin/getAllUser" ,payload)
         .then( (response)=>
         {console.log(response) 
             if(response.data.status === true ){
@@ -73,8 +74,8 @@ const Newuser = () =>{
       
     return(
         <div>
-           <Button  type='default' onClick={showModal} style={{border:'none' , color:'blue'}}>
-            Add New User
+           <Button onClick={()=>handleClick} style={{border:'none' , color:'blue' }}>
+            Edit
            </Button>
            <Modal className='ant-modal-content' open={isModalopen} closable={false}  footer={null}>
            <Form name='register' {...formItemLayout}  onFinish={onFinish} scrollToFirstError  >

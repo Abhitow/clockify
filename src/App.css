@@ -89,12 +89,18 @@
 /*<------Dashboard -Card*/
 
 .dashboard-card{
-  width: 250px;
+  padding-left: 20px;
+  width: 330px;
   height: 250px;
-  padding: 20px;
-  margin: 20px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); 
+  border-radius: 20px;
+  background:linear-gradient(to right , rgb(237, 243, 211) ,rgb(185, 248, 245));
+}
+
+.user-icon{
+  font-size: 60px;
+  float: right;
+  color: orange;
 }
 .flip-card {
   background-color: transparent;
@@ -102,6 +108,7 @@
   height: 250px;
   perspective: 1000px;
   padding: 20px;
+  
   margin: 20px;
 }
 
@@ -109,7 +116,7 @@
   position: relative;
   width: 250px;
   height: 250px;
-  text-align: center;
+  /* text-align: center; */
   transition: transform 1s;
   transform-style: preserve-3d;
   
@@ -140,6 +147,7 @@
 .layout-content{
   height: 100vh;
   overflow: auto;
+  margin-top: 50px;
   
 }
 

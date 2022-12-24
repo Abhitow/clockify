@@ -47,10 +47,6 @@ const handleClick =() => {
   }
      else{
       console.log("unsuccess")
-      message.open({
-        type:'error' ,
-        content:'please enter valid input'
-      })
     }
   
      

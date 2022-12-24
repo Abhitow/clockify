@@ -18,7 +18,7 @@ function handleLogout(){
     return (
         <>
         {contextHolder}
-        <Button type='default' onClick={handleLogout}>Logout</Button>
+        <Button type='default' onClick={handleLogout} style={{border:'none'}}>Logout</Button>
         </>
         
     )
