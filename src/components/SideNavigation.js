@@ -1,5 +1,6 @@
 import React  from 'react'
 import { Menu, Row ,Col} from 'antd' 
+import {useNavigate} from 'react-router-dom'
 import {DashboardOutlined,
         FieldTimeOutlined,
         CalendarOutlined ,
@@ -9,12 +10,23 @@ import {DashboardOutlined,
         FileDoneOutlined} from '@ant-design/icons'
 
 
+
+
 const SideNavigation = () =>{
+    const navigate = useNavigate();
     return(
         <div>
             <Row><Col span={24} style={{textAlign:'center'}}><h1>Admin</h1></Col></Row>
             
                 <Menu 
+                    onClick={({key})=>{
+                        if( key === "Logout"){
+                            console.log("----->Logout Success");
+                        }
+                        else{
+                            navigate(key);
+                        }
+                    }}
                     items={[
                         {
                             className:'sider-label',

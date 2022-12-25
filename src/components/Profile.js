@@ -1,7 +1,8 @@
-import { Dropdown, Space } from 'antd'
+import { Dropdown, Space, Switch } from 'antd'
 import React from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import Logout from './Logout'
+import HomeSwitch from './HomeSwicth'
 
 const items =[
     {
@@ -17,7 +18,9 @@ const items =[
     } ,
     {
         key:'3',
-        label:'Dark Theme'
+        label: <HomeSwitch />
+        // Element: <HomeSwitch />
+
     },
     
     {
