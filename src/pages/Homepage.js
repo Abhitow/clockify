@@ -39,7 +39,7 @@ const Homepage =() =>{
                             <Route path='/calendar' element={<HomeCalendar />}></Route>
                             <Route path='/team' element={<Team />}></Route>
                             <Route path='/reports' element={<Reports/>}></Route>
-                            <Route path='/project' element={<Project/>}></Route>
+                            <Route path='/projects' element={<Project/>}></Route>
                         </Routes>
                     </Content>
                    
