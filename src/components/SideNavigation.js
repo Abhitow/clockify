@@ -18,7 +18,7 @@ const SideNavigation = () =>{
         <div>
             <Row><Col span={24} style={{textAlign:'center'}}><h1>Admin</h1></Col></Row>
             
-                <Menu 
+                <Menu  defaultSelectedKeys={['/dashboard']}
                     onClick={({key})=>{
                         if( key === "Logout"){
                             console.log("----->Logout Success");
@@ -32,7 +32,8 @@ const SideNavigation = () =>{
                             className:'sider-label',
                             key:'/dashboard' ,
                             label :'Dashboard',
-                            icon: <DashboardOutlined className='sider-icon'/>
+                            icon: <DashboardOutlined className='sider-icon'/> ,
+                            
                         },
                         {
                             className:'sider-label',

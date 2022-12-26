@@ -142,6 +142,12 @@
   backface-visibility: hidden;
   
 }
+.card-edit-delete-button{
+  border: none;
+  background: none;
+  cursor: pointer;
+ 
+}
 /*<-----Layout Content------>*/
 
 .layout-content{

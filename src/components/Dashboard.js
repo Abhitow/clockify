@@ -2,7 +2,7 @@ import axios from 'axios';
 import React,{useEffect, useState} from 'react'
 import DashboardCard from './Card';
 import {Card ,Row ,Col, Divider,Button} from 'antd'
-import {EditOutlined, UserOutlined} from '@ant-design/icons'
+import {DeleteOutlined, EditOutlined, UserOutlined} from '@ant-design/icons'
 import KebabMenu from './KebabMenu';
 import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
@@ -15,22 +15,10 @@ const Dashboard =() =>{
     const fecthData = () =>{
          axios.get(baseURL ).then((response) => setPost(response.data.data));
     }
+    
     useEffect( ()=>{
         fecthData();
         }, []);
-    // useEffect( ()=> {
-    //     if(data!==undefined){
-    //         console.log("=====>",data)
-    //     }
-    //     console.log(data + "got")
-    
-    // },[data]);
-
-
-    const handleOnclick = ()=>{
-        console.log("tets")
-    }
-    
     if(!post) return null
     return(
         <div>
@@ -43,7 +31,7 @@ const Dashboard =() =>{
                         <div className='flip-card'>
                             <div className='flip-card-inner'>
                                 <div className='flip-card-front'>
-                                        <Col >
+                                        <Col>
                                             <Card  className='dashboard-card' title={data.user_id}>
                                                     {<UserOutlined className='user-icon'/>}
                                                     <h1 key={data.full_name}>{data.full_name}</h1>
@@ -54,7 +42,11 @@ const Dashboard =() =>{
                                         </Col>      
                                 </div>
                                 <div className='flip-card-back'>
-                                <Card className='dashboard-card' title='Employee Details' >
+                                <Card className='dashboard-card' title='Employee Details' 
+                                extra={<div style={{display:'flex' , flexDirection:'row', marginRight:'5px'}}>
+                                        {<EditButton Userdata= {data}/>}
+                                        {<DeleteButton DeleteData= {data}/>}
+                                    </div> }>
                                     <Row >                                    
                                     <Col span={20}>
                                                 <h4 key={data.work_experience}>Experience :- {data.work_experience}</h4>

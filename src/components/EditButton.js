@@ -1,84 +1,93 @@
-import React, {useState} from 'react'
-import { Button, Form, Modal ,Input ,message , Checkbox} from 'antd'
-import axios from 'axios'
+import React,{useState} from 'react'
+import {EditOutlined } from '@ant-design/icons'
+import { Modal,Form ,Input,Checkbox,Button ,message } from 'antd';
+import axios from 'axios';
 
-const Newuser = () =>{
+
+const EditButton = (props) => {
+let EditAPI = props.Userdata.user_id;
+  const [isModalOpen , setIsModalOpen] = useState(false);
+  const [fullName , setFullname] =useState("");
+  const[designation , setDesignation] =useState("");
+  const[email , setEmail] =useState("");
+  const[phone , setPhone] =useState("");
+  const[workexperience , setworkexperience] =useState("");
+  const [usercompany , setUsercompany] =useState("");
+  const [messageApi ,contextHolder] = message.useMessage();
+  const [confirmLoading , setConfirmLoading] =useState(false);
+  
+  const formItemLayout = {
+    labelCol: {
+      xs: {span: 24,},
+      sm: {span: 8,},
+    },
     
-    const [messageApi ,contextHolder] = message.useMessage();
-    const formItemLayout = {
-        labelCol: {
-          xs: {span: 24,},
-          sm: {span: 8,},
-        },
-        
-        wrapperCol: {
-          xs: {span: 24,},
-          sm: {span: 16,},
-        },
-      };
-      const tailFormItemLayout = {
-        wrapperCol: {
-          xs: {span: 24,offset: 0,},
-          sm: {span: 16,offset: 8,},
-        },
-      };
-      const [fullName , setFullname] =useState("");
-    const[designation , setDesignation] =useState("");
-    const[email , setEmail] =useState("");
-    const[phone , setPhone] =useState("");
-    const[workexperience , setworkexperience] =useState("");
-    const [usercompany , setUsercompany] =useState("");
-    const [isModalopen , setIsModalOpen] =useState(false);
-    
-    const showModal = () =>{
-        console.log("------>Button working")
-        setIsModalOpen(true);
-    };
-    
-    const handleCancel = () => {
-        setIsModalOpen(false);
+    wrapperCol: {
+      xs: {span: 24,},
+      sm: {span: 16,},
+    },
+  };
+  const tailFormItemLayout = {
+    wrapperCol: {
+      xs: {span: 24,offset: 0,},
+      sm: {span: 16,offset: 8,},
+    },
+  };
+  //  console.log(props.data);
+   const handleEdit = () =>{
+    console.log("----->edit button works");
+    setIsModalOpen(true);
+   console.log(props.Userdata);
+   console.log(EditAPI);
+}
+    const handleCancel =() =>{
+      setIsModalOpen(false)
+    }
+    const handleClick = () =>{
+      console.log("---->handle clickeddd");
+     
+      
     }
     const payload ={
-        "full_name": fullName,
-        "designation":  designation,
-        "work_experience": workexperience,
-        "email": email,
-        "mobile_no": phone,
-        "user_company": usercompany
-    };
-      const onFinish =() =>{
-        console.log("handleFinish")
-        messageApi.open({
-            type:'success',
-            content:'successfully registered'
-        })
-        console.log(payload);
-        axios.put("http://demo.emeetify.com:8080 /daytodaytask/admin/getAllUser" ,payload)
-        .then( (response)=>
-        {console.log(response) 
-            if(response.data.status === true ){
-                    console.log("----->working");
-                    setIsModalOpen(false);
-            }else{
-                console.log("--->not working");
-            }
+      "full_name": fullName,
+      "designation":  designation,
+      "work_experience": workexperience,
+      "email": email,
+      "mobile_no": phone,
+      "user_company": usercompany
+  };
+  // console.log(EditAPI);
+  const onFinish = (event) =>{
+    console.log(props.Userdata);
+    console.log("handleFinish")
+    messageApi.open({
+        type:'success',
+        content:'Updated Successfully'
     })
-        .catch(e =>{console.log("e" ,e)})
-      }
-
-      
-    const handleClick = () =>{
-    console.log("handling"); 
-       
-    }
-      
+    console.log(payload);
+    console.log(EditAPI+ "<-------");
+    axios.put(`http://demo.emeetify.com:8080/daytodaytask/admin/adminupdateUser/` + EditAPI, payload)
+    .then( (response)=>
+    {console.log(response) 
+        if(response.data.status === true ){
+                console.log("----->working");
+                // setIsModalOpen(false);
+        }else{
+            console.log("--->not working");
+        }
+})
+    .catch(e =>{console.log("e" ,e)})
+    setConfirmLoading(true);
+    setTimeout(()=>{
+      setIsModalOpen(false);
+      setConfirmLoading(false);
+    },2000);
+  }
     return(
         <div>
-           <Button onClick={()=>handleClick} style={{border:'none' , color:'blue' }}>
-            Edit
-           </Button>
-           <Modal className='ant-modal-content' open={isModalopen} closable={false}  footer={null}>
-           <Form name='register' {...formItemLayout}  onFinish={onFinish} scrollToFirstError  >
+            <button onClick={handleEdit} className='card-edit-delete-button'><EditOutlined /></button>
+            <Modal open={isModalOpen} footer={null}>
+            <Form name='register'   onFinish={onFinish} scrollToFirstError {...formItemLayout} >
             <Form.Item
                 name="fullname"
                 label="FullName"
@@ -90,7 +99,7 @@ const Newuser = () =>{
                     },
                 ]}
                 >
-                 <Input className='register-form-input' autoComplete='off'  value={fullName} onChange={(e)=>{setFullname(e.target.value)}}/>
+                 <Input className='register-form-input' autoComplete='off'  defaultValue={props.Userdata.full_name} onChange={(e)=>{setFullname(e.target.value)}}/>
             </Form.Item>
             <Form.Item 
             name='designation'
@@ -102,7 +111,7 @@ const Newuser = () =>{
                     message:'please enter your designation'
                 }
             ]}>
-                <Input className='register-form-input' value={designation} onChange={(e)=>{setDesignation(e.target.value)}}/>
+                <Input className='register-form-input' defaultValue={props.Userdata.designation} onChange={(e)=>{setDesignation(e.target.value)}}/>
             </Form.Item>
             <Form.Item
                 name="email"
@@ -120,7 +129,7 @@ const Newuser = () =>{
                     },
                 ]}
                 >
-                 <Input className='register-form-input' value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
+                 <Input className='register-form-input' defaultValue={props.Userdata.email} onChange={(e)=>{setEmail(e.target.value)}}/>
             </Form.Item>
             <Form.Item
             name='workexperience'
@@ -136,7 +145,7 @@ const Newuser = () =>{
                     max:20
                 }
             ]}>
-                <Input className='register-form-input' value={workexperience} onChange={(e)=>{setworkexperience(e.target.value)}}/>
+                <Input className='register-form-input' defaultValue={props.Userdata.work_experience} onChange={(e)=>{setworkexperience(e.target.value)}}/>
             </Form.Item>
             <Form.Item
         name="phone"
@@ -150,7 +159,7 @@ const Newuser = () =>{
           
         ]}
       >
-         <Input className='register-form-input' value={phone} onChange={(e)=>{setPhone(e.target.value)}}
+         <Input className='register-form-input' defaultValue={props.Userdata.phone} onChange={(e)=>{setPhone(e.target.value)}}
           style={{
             width: '80%',
           }}
@@ -166,7 +175,7 @@ const Newuser = () =>{
             message:'please enter your company'
         }
       ]}>
-        <Input className='register-form-input' value={usercompany} onChange={(e)=>{setUsercompany(e.target.value)}}/>
+        <Input className='register-form-input' defaultValue={props.Userdata.user_company} onChange={(e)=>{setUsercompany(e.target.value)}}/>
       </Form.Item>
       <Form.Item 
               name='agreement'
@@ -176,20 +185,19 @@ const Newuser = () =>{
                     validator:(_ , value)=> 
                     value ? Promise.resolve() : Promise.reject(new Error('accept the agreement')),
                 }
-              ]} {...tailFormItemLayout}>
+              ]} >
                 <Checkbox >
                     I have read the <a href='https://www.google.com'>agreement</a>
                 </Checkbox>
               </Form.Item>
             <Form.Item>
                 {contextHolder}
-                <Button onClick={handleClick} htmlType='submit' type='primary' className='register-form-submit-button'>Register</Button>
+                <Button onClick={handleClick} htmlType='submit' type='primary' className='register-form-submit-button'>Update</Button>
                 <Button onClick={handleCancel}  className='register-form-cancel-button' danger>Cancel</Button>
             </Form.Item>
         </Form>
-           </Modal>
-            
+            </Modal>
         </div>
     )    
 }
-export default Newuser
+export default EditButton

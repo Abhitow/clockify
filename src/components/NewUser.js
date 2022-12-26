@@ -22,7 +22,7 @@ const Newuser = () =>{
           sm: {span: 16,offset: 8,},
         },
       };
-      const [fullName , setFullname] =useState("");
+    const [fullName , setFullname] =useState("");
     const[designation , setDesignation] =useState("");
     const[email , setEmail] =useState("");
     const[phone , setPhone] =useState("");
@@ -176,7 +176,7 @@ const Newuser = () =>{
                     value ? Promise.resolve() : Promise.reject(new Error('accept the agreement')),
                 }
               ]} {...tailFormItemLayout}>
-                <Checkbox >
+                <Checkbox style={{float:'right'}}>
                     I have read the <a href='https://www.google.com'>agreement</a>
                 </Checkbox>
               </Form.Item>
