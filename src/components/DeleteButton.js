@@ -1,11 +1,10 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState} from 'react'
 import { DeleteOutlined } from '@ant-design/icons'
 import {ExclamationCircleOutlined} from '@ant-design/icons'
-import {Modal , Space} from 'antd'
+import {Modal} from 'antd'
 import axios  from 'axios'
 
 const DeleteButton = (props) => {
-    
     let DeleteApi = props.DeleteData.user_id;
     console.log(DeleteApi + "<========");
     const [open ,setOpen] = useState(false);
@@ -20,12 +19,6 @@ const DeleteButton = (props) => {
         .catch(e=>{console.log("e" , e)})
        
       };
-
-      
-
-
-
-
     return(
        <div>
         <button onClick={showModal} className='card-edit-delete-button' style={{color:'red'}}><DeleteOutlined /></button>

@@ -1,4 +1,4 @@
-import { Dropdown, Space, Switch } from 'antd'
+import { Dropdown, Space } from 'antd'
 import React from 'react'
 import { UserOutlined } from '@ant-design/icons'
 import Logout from './Logout'

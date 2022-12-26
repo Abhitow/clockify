@@ -1,8 +1,7 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {Card , Form ,Input ,Button ,message} from 'antd'
 import { useState  } from 'react';
-import {Route, Routes, useNavigate} from 'react-router-dom'
-import HomeContent from '../components/Content';
+import {useNavigate} from 'react-router-dom'
 // import Axios from 'axios'
 
 function Login() {

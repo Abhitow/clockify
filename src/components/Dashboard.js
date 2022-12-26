@@ -1,9 +1,7 @@
 import axios from 'axios';
 import React,{useEffect, useState} from 'react'
-import DashboardCard from './Card';
-import {Card ,Row ,Col, Divider,Button} from 'antd'
-import {DeleteOutlined, EditOutlined, UserOutlined} from '@ant-design/icons'
-import KebabMenu from './KebabMenu';
+import {Card ,Row ,Col} from 'antd'
+import {UserOutlined} from '@ant-design/icons'
 import EditButton from './EditButton';
 import DeleteButton from './DeleteButton';
 
