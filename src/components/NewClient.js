@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import {Affix,Button , Form , Modal , Input} from 'antd'
+import {Affix,Button , Form , Modal , Input, Checkbox, Radio} from 'antd'
 import TextArea from 'antd/es/input/TextArea';
 import axios from 'axios';
 
@@ -39,8 +39,6 @@ const [isModalOpen , setIsModalOpen] = useState(false);
             }
         })
         .catch( e =>{console.log("e" , e)})
-
-       
     }
     return(
         <div >
