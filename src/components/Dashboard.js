@@ -7,13 +7,11 @@ import DeleteButton from './DeleteButton';
 
 
 const baseURL = "http://demo.emeetify.com:8080/daytodaytask/admin/getAllUser";
-
 const Dashboard =() =>{
     const [post , setPost]= useState([]);
     const fecthData = () =>{
          axios.get(baseURL ).then((response) => setPost(response.data.data));
     }
-    
     useEffect( ()=>{
         fecthData();
         }, []);
@@ -34,17 +32,16 @@ const Dashboard =() =>{
                                                     {<UserOutlined className='user-icon'/>}
                                                     <h1 key={data.full_name}>{data.full_name}</h1>
                                                     <h4 key={data.designation} >Designation :  {data.designation}</h4>
-                                                    <h1 key={data.user_company} style={{wordSpacing:'2px',letterSpacing:'2px',paddingBottom:'10px'}}>{data.user_company}</h1>
-                                                   
+                                                    <h1 key={data.user_company} style={{wordSpacing:'2px',letterSpacing:'2px',paddingBottom:'10px'}}>{data.user_company}</h1>    
                                             </Card>
                                         </Col>      
                                 </div>
                                 <div className='flip-card-back'>
                                 <Card className='dashboard-card' title='Employee Details' 
-                                extra={<div style={{display:'flex' , flexDirection:'row', marginRight:'5px'}}>
+                                    extra={<div style={{display:'flex' , flexDirection:'row', marginRight:'5px'}}>
                                         {<EditButton Userdata= {data}/>}
                                         {<DeleteButton DeleteData= {data}/>}
-                                    </div> }>
+                                        </div> }>
                                     <Row >                                    
                                     <Col span={20}>
                                                 <h4 key={data.work_experience}>Experience :- {data.work_experience}</h4>
@@ -52,17 +49,14 @@ const Dashboard =() =>{
                                                 <h4 style={{textAlign:'center' ,marginLeft:'22px'}}>Email : {data.email}</h4>
                                     </Col>
                                     </Row>
-                                            </Card>
+                                 </Card>
                                 </div>
                             </div>
-                        </div>
-                       
+                          </div>
                         </div>
                         )})}
-                    
                      </Row>
             </div>
-           
         </div>
     )    
 }
