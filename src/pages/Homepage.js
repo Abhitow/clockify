@@ -2,7 +2,6 @@ import { Layout } from 'antd'
 import React,{useState} from 'react'
 import SideNavigation from '../components/SideNavigation'
 import HomeHeader from '../components/Header'
-import HomeContent from '../components/Content'
 import {MenuFoldOutlined , MenuUnfoldOutlined} from '@ant-design/icons'
 import { Route, Routes } from 'react-router'
 import Dashboard from '../components/Dashboard'
@@ -11,7 +10,7 @@ import TimeTracker from './TimeTracker'
 import Team from './Team'
 import Reports from './Reports'
 import Project from './Project'
-import HomeCalendar from './Calendar'
+import Client from './Client'
 const {Header ,Sider , Content} =Layout ;
 
 
@@ -32,15 +31,16 @@ const Homepage =() =>{
                 <Layout>
                 <Header className='layout-header'><HomeHeader /></Header>
                     <Content className='layout-content'>
+                        <>
                         <Routes>
-                            <Route path='/dashboard' element={<Dashboard />}></Route>
+                            <Route path='/team' element={<Dashboard />}></Route>
                             <Route path='/timesheet' element={<Timesheet />}>Timesheet</Route>
                             <Route path='/timetracker' element={<TimeTracker/>}></Route>
-                            <Route path='/calendar' element={<HomeCalendar />}></Route>
-                            <Route path='/team' element={<Team />}></Route>
+                            <Route path='/client' element={<Client />}></Route>
                             <Route path='/reports' element={<Reports/>}></Route>
                             <Route path='/projects' element={<Project/>}></Route>
                         </Routes>
+                        </>
                     </Content>
                    
                 </Layout>

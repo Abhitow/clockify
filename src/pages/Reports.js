@@ -6,24 +6,28 @@ const Reports = () => {
     const [post , setPost] = useState([]);
     const handleReport = () =>{
         console.log("<---------report handled");
-        axios.get("http://demo.emeetify.com:8080/daytodaytask/admin/getToatalCountProjects")
+        axios.get("http://demo.emeetify.com:8080/daytodaytask/admin/getTotalCount")
         .then(response => {console.log(response)})
         .catch(e => {console.log("e" , e)});
+    }
+    const handleClick = () =>{
+        console.log("response");
     }
     return(
         <div>
             <h1>Welcome to Reports Page</h1>
-            <Row>
+            <Button type='primary' onClick={handleReport}>Submit</Button>
+            {/* <Row>
                 {post.map( (data) => {
                     return (
                         <div>
-                            <Card>
-                                
+                            <Card style={{height:'200px' ,width:'100px'}}>
+                                <Button onClick={handleClick}>Click</Button>
                             </Card>
                         </div>
                     )
                 })}
-            </Row>
+            </Row> */}
         </div>
     )
 }

@@ -154,7 +154,24 @@
   height: 100vh;
   overflow: auto;
   margin-top: 50px;
-  
+}
+.project-card-one{
+  width: 250px;
+  margin-right: 20px;
+  text-align: center;
+  background: rgb(245, 245, 177);
+}
+.project-card-two{
+  width: 250px;
+  margin-right: 20px;
+  text-align: center;
+  background: rgb(200, 251, 193);
+}
+.project-card-three{
+  width: 250px;
+  margin-right: 20px;
+  text-align: center;
+  background: rgb(250, 211, 188);
 }
 
 /*<-----Login Page Validation*/

@@ -6,10 +6,7 @@ import Dashboard from './Dashboard'
 const Content = () => {
     return(
         
-            <Routes>
-                <Route path='/dashboard' element={<Dashboard />} />
-                <Route path='/timesheet' element={<Timesheet />} />
-            </Routes>
+            <h1>Welcome to Home Page</h1>
     )
 }
 

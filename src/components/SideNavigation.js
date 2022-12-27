@@ -18,7 +18,7 @@ const SideNavigation = () =>{
         <div>
             <Row><Col span={24} style={{textAlign:'center'}}><h1>Admin</h1></Col></Row>
             
-                <Menu  defaultSelectedKeys={['/dashboard']}
+                <Menu 
                     onClick={({key})=>{
                         if( key === "Logout"){
                             console.log("----->Logout Success");
@@ -30,11 +30,24 @@ const SideNavigation = () =>{
                     items={[
                         {
                             className:'sider-label',
-                            key:'/dashboard' ,
-                            label :'Dashboard',
-                            icon: <DashboardOutlined className='sider-icon'/> ,
+                            key:'/team' ,
+                            label :'Team',
+                            icon: <TeamOutlined className='sider-icon'/>
+                            
                             
                         },
+                        {
+                            className:'sider-label',
+                            key:'/client' ,
+                            label :'Client',
+                            icon: <CalendarOutlined className='sider-icon'/>
+                        },
+                        {
+                            className:'sider-label',
+                            key:'/projects' ,
+                            label :'Projects',
+                            icon: <FileDoneOutlined className='sider-icon'/>
+                        } ,
                         {
                             className:'sider-label',
                             key:'/timesheet' ,
@@ -49,28 +62,11 @@ const SideNavigation = () =>{
                         },
                         {
                             className:'sider-label',
-                            key:'/calendar' ,
-                            label :'Calendar',
-                            icon: <CalendarOutlined className='sider-icon'/>
-                        },
-                        {
-                            className:'sider-label',
-                            key:'/team' ,
-                            label :'Team',
-                            icon: <TeamOutlined className='sider-icon'/>
-                        },
-                        {
-                            className:'sider-label',
                             key:'/reports' ,
                             label :'Reports',
                             icon: <FileOutlined className='sider-icon'/>
                         },
-                        {
-                            className:'sider-label',
-                            key:'/projects' ,
-                            label :'Projects',
-                            icon: <FileDoneOutlined className='sider-icon'/>
-                        }
+                        
 
                     ]}
                 />
