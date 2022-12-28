@@ -5,11 +5,12 @@ import HomeHeader from '../components/Header'
 import {MenuFoldOutlined , MenuUnfoldOutlined} from '@ant-design/icons'
 import { Route, Routes } from 'react-router'
 import Dashboard from '../components/Dashboard'
-import Timesheet from './Timesheet'
 import TimeTracker from './TimeTracker'
 import Reports from './Reports'
 import Project from './Project'
 import Client from './Client'
+import Task from './Task'
+import UserCalendar from './Calendar'
 const {Header ,Sider , Content} =Layout ;
 
 
@@ -33,8 +34,8 @@ const Homepage =() =>{
                         <>
                         <Routes>
                             <Route path='/team' element={<Dashboard />}></Route>
-                            <Route path='/timesheet' element={<Timesheet />}>Timesheet</Route>
-                            <Route path='/timetracker' element={<TimeTracker/>}></Route>
+                            <Route path='/task' element={<Task />}></Route>
+                            <Route path='/calendar' element={<UserCalendar/>}></Route>
                             <Route path='/client' element={<Client />}></Route>
                             <Route path='/reports' element={<Reports/>}></Route>
                             <Route path='/projects' element={<Project/>}></Route>

@@ -50,15 +50,15 @@ const SideNavigation = () =>{
                         } ,
                         {
                             className:'sider-label',
-                            key:'/timesheet' ,
-                            label :'TimeSheet',
+                            key:'/task' ,
+                            label :'Tasks',
                             icon: <FieldTimeOutlined className='sider-icon'/>
                         },
                         {
                             className:'sider-label',
-                            key:'/timetracker' ,
-                            label :'TimeTracker',
-                            icon: <ClockCircleOutlined className='sider-icon'/>
+                            key:'/calendar' ,
+                            label :'Calendar',
+                            icon: <CalendarOutlined className='sider-icon'/>
                         },
                         {
                             className:'sider-label',
